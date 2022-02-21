@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Gopro Meta Data Scraper</title>
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../css/toast.css" />
+  <script src="../bower_components/bootstrap/dist/js/bootstrap.bundle.js"></script>
+  <style>
+    .main-container {
+      width: 100%;
+      max-width: 400px;
+      padding: 15px;
+      margin: auto;
+    }
+
+    .dropdown-menu {
+      width: 100%;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body class="text-center">
+
+  <!-- Page 1 - Upload File Screen -->
+  <main class="main-container form-upload">
+    <form id="fileUpload">
+      <img class="mb-4" src="../images/gopro.png" alt="" width="100" height="100">
+      <h1 class="h3 mb-3 fw-normal">GoPro Meta Data Scraper</h1>
+      <div>
+        <label for="formFileLg" class="form-label">Upload your GoPro Video</label>
+        <input class="form-control form-control-lg" id="file" type="file" accept="video/mp4" name='file'>
+      </div>
+
+      <button class="mt-2 w-100 btn btn-lg btn-primary" type="submit">Process Video</button>
+    </form>
+  </main>
+
+  <!-- Page 2 - Format / Device Selection -->
+  <main class="main-container form-export hidden">
+    <form id="optionSelect">
+      <h1 class="h3 mb-3 fw-normal">Options</h1>
+
+      <label for="export-format" class="form-label">Select Export Format</label>
+      <div class="dropdown">
+        <button id="dataFormatDropdownButton" data-value="" class="btn btn-secondary dropdown-toggle form-select"
+          type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          Select an option:
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li>
+            <a class="dropdown-item" href="#" data-bs-toggle="tooltip" data-bs-placement="right"
+              data-update-target="dataFormatDropdownButton" data-value="xlsx"
+              title="Excel file. Multiple sheets containing all the available sensor data for each device in separate sheets.">
+              Excel (.xlsx)
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#" data-bs-toggle="tooltip" data-bs-placement="right"
+              data-update-target="dataFormatDropdownButton" data-value="kml"
+              title="Keyhole Markup Language. Compatible with Google Earth.">
+              kml (.kml)
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#" data-bs-toggle="tooltip" data-bs-placement="right"
+              data-update-target="dataFormatDropdownButton" data-value="geojson"
+              title="Open standard format designed for representing simple geographical features.">
+              geojson (.geojson)
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#" data-bs-toggle="tooltip" data-bs-placement="right"
+              data-update-target="dataFormatDropdownButton" data-value="json" title="JavaScript Object Notion. Contains all available device and stream data.">
+              json (.json)
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#" data-bs-toggle="tooltip" data-bs-placement="right"
+              data-update-target="dataFormatDropdownButton" data-value="gpx"
+              title="GPS Exchange format. Compatible with many maps systems." >
+              gpx (.gpx)
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#" data-bs-toggle="tooltip" data-bs-placement="right"
+              data-update-target="dataFormatDropdownButton" data-value="mgjson"
+              title="Format for Adobe After Effects. The file can be imported as standard footage and will generate data streams to link properties/effects to.">
+              mgjson (.mgjson)
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#" data-bs-toggle="tooltip" data-bs-placement="right"
+              data-update-target="dataFormatDropdownButton" data-value="virb"
+              title="Just like GPX but with small changes for compatibility with Garmin's Virb Edit video editing software. Based on Garmin's Trackpoint Extension. ">
+              virb (.gpx)
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="form-text">
+        This tool supports exporting data in various types. Hover over a file type to seem more information about it's uses.
+      </div>
+
+      <button class="mt-2 w-100 btn btn-lg btn-primary" type="submit">Export Data</button>
+      <button id="backToUpload" class="btn btn-link" type="button">Process another</button>
+    </form>
+
+  </main>
+
+  <script src="../client-js/home.js"></script>
+  <script src="../client-js/toast.js"></script>
+</body>
+
+</html>
